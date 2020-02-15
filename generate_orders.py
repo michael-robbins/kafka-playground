@@ -36,11 +36,11 @@ def generate_order(order_id):
     }
 
 def send_items_forever(producer, topic):
-    order_id = 1
+    order_id = 100001
 
     while True:
         order = generate_order(order_id)
-        producer.send(topic, key=order_id, value=order)
+        producer.send(topic, key=str(order_id).encode("utf-8"), value=order)
         print(order)
         order_id += 1
 
