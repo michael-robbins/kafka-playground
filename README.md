@@ -19,5 +19,8 @@ Assumes you're running the cluster with the above command
 docker run -it --network kafka-playground_cluster --rm -v $(pwd):/scripts -w '/scripts' kafka-scripts:latest /bin/bash
 
 # Create the default topics
-./create-topics.py
+./create_topics.py
+
+# Start an infinite loop generating orders
+./generate_orders.py
 ```
