@@ -10,18 +10,18 @@ import time
 
 
 PRODUCTS = [
-    {"type": "car", "brand": "Ford", "product": "Falcon XR6"},
-    {"type": "car", "brand": "Ford", "product": "Falcon XR8"},
-    {"type": "car", "brand": "Holden", "product": "Commodore Tourer"},
-    {"type": "food", "brand": "Safeway", "product": "Celery"},
-    {"type": "food", "brand": "Heinz", "product": "Tomato Sauce"},
-    {"type": "food", "brand": "Melbourne Hotsauce Company", "product": "Bum Burner"},
-    {"type": "tv", "brand": "Panasonic", "product": "65 4K HDR OLED TV"},
-    {"type": "tv", "brand": "Samsung", "product": "98 QLED 8K UHD TV"},
-    {"type": "tv", "brand": "LG", "product": "65 OLED TV"},
-    {"type": "spirits", "brand": "Laphroaig", "product": "10YO Single Malt Whisky"},
-    {"type": "spirits", "brand": "Ardbeg", "product": "Uigeadail"},
-    {"type": "spirits", "brand": "Bruichladdich", "product": "Sherry Cask Edition 25YO"},
+    {"type": "car", "brand": "Ford", "product": "Falcon XR6", "price": 25000},
+    {"type": "car", "brand": "Ford", "product": "Falcon XR8", "price": 28000},
+    {"type": "car", "brand": "Holden", "product": "Commodore Tourer", "price": 32000},
+    {"type": "food", "brand": "Safeway", "product": "Celery", "price": 0.25},
+    {"type": "food", "brand": "Heinz", "product": "Tomato Sauce", "price": 2.99},
+    {"type": "food", "brand": "Melbourne Hotsauce Company", "product": "Bum Burner", "price": 12.99},
+    {"type": "tv", "brand": "Panasonic", "product": "65 4K HDR OLED TV", "price": 2499.99},
+    {"type": "tv", "brand": "Samsung", "product": "98 QLED 8K UHD TV", "price": 2099.99},
+    {"type": "tv", "brand": "LG", "product": "65 OLED TV", "price": 3599.00},
+    {"type": "spirits", "brand": "Laphroaig", "product": "10YO Single Malt Whisky", "price": 89.99},
+    {"type": "spirits", "brand": "Ardbeg", "product": "Uigeadail", "price": 120.50},
+    {"type": "spirits", "brand": "Bruichladdich", "product": "Sherry Cask Edition 25YO", "price": 850},
 ]
 
 
