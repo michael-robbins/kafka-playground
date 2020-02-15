@@ -24,7 +24,6 @@ PRODUCTS = [
     {"type": "spirits", "brand": "Bruichladdich", "product": "Sherry Cask Edition 25YO", "price": 850},
 ]
 
-
 def generate_items(choices=3):
     return [random.choice(PRODUCTS) for _ in range(random.randrange(1, choices + 1))]
 
