@@ -7,7 +7,7 @@ services:
       - ZOO_CLIENT_USER=user
       - ZOO_CLIENT_PASSWORD=password
     networks:
-      - kafka-cluster
+      - cluster
     volumes:
       - zookeeper:/bitnami/zookeeper
 
@@ -21,10 +21,8 @@ services:
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka-1:9092
       - KAFKA_ZOOKEEPER_USER=user
       - KAFKA_ZOOKEEPER_PASSWORD=password
-    ports:
-      - "9091:9092"
     networks:
-      - kafka-cluster
+      - cluster
     volumes:
       - kafka-1:/bitnami/kafka
     
@@ -38,10 +36,8 @@ services:
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka-2:9092
       - KAFKA_ZOOKEEPER_USER=user
       - KAFKA_ZOOKEEPER_PASSWORD=password
-    ports:
-      - "9092:9092"
     networks:
-      - kafka-cluster
+      - cluster
     volumes:
       - kafka-2:/bitnami/kafka
 
@@ -55,10 +51,8 @@ services:
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka-3:9092
       - KAFKA_ZOOKEEPER_USER=user
       - KAFKA_ZOOKEEPER_PASSWORD=password
-    ports:
-      - "9093:9092"
     networks:
-      - kafka-cluster
+      - cluster
     volumes:
       - kafka-3:/bitnami/kafka
 
@@ -74,10 +68,10 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - kafka-cluster
+      - cluster
 
 networks:
-  kafka-cluster:
+  cluster:
 
 volumes:
   zookeeper:
