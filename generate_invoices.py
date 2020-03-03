@@ -22,12 +22,13 @@ def generate_invoice(order):
 
 def listen_for_orders_forever(consumer, producer):
     for order in consumer:
-        invoice = generate_invoice(order)
-        producer.send("invoices", key=str(invoice["id"]).encode("utf-8"), value=invoice)
+        print(order)
+        invoice = generate_invoice(order.value)
+        producer.send("invoices", key=str(invoice["invoice_id"]).encode("utf-8"), value=invoice)
         print(invoice)
 
 if __name__ == "__main__":
-    brokers = ["kafka-1:9092", "kafka-2:9092", "kafka-3:9092"]
+    brokers = ["broker-1:9092", "broker-2:9092", "broker-3:9092"]
 
     producer = KafkaProducer(
         bootstrap_servers=brokers,

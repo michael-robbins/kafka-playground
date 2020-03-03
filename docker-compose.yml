@@ -11,60 +11,60 @@ services:
     volumes:
       - zookeeper:/bitnami/zookeeper
 
-  kafka-1:
+  broker-1:
     image: bitnami/kafka:latest
     depends_on:
       - zookeeper
     environment:
       - ALLOW_PLAINTEXT_LISTENER=yes
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka-1:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://broker-1:9092
       - KAFKA_ZOOKEEPER_USER=user
       - KAFKA_ZOOKEEPER_PASSWORD=password
     networks:
       - cluster
     volumes:
-      - kafka-1:/bitnami/kafka
+      - broker-1:/bitnami/kafka
     
-  kafka-2:
+  broker-2:
     image: bitnami/kafka:latest
     depends_on:
       - zookeeper
-      - kafka-1
+      - broker-1
     environment:
       - ALLOW_PLAINTEXT_LISTENER=yes
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka-2:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://broker-2:9092
       - KAFKA_ZOOKEEPER_USER=user
       - KAFKA_ZOOKEEPER_PASSWORD=password
     networks:
       - cluster
     volumes:
-      - kafka-2:/bitnami/kafka
+      - broker-2:/bitnami/kafka
 
-  kafka-3:
+  broker-3:
     image: bitnami/kafka:latest
     depends_on:
       - zookeeper
-      - kafka-2
+      - broker-2
     environment:
       - ALLOW_PLAINTEXT_LISTENER=yes
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka-3:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://broker-3:9092
       - KAFKA_ZOOKEEPER_USER=user
       - KAFKA_ZOOKEEPER_PASSWORD=password
     networks:
       - cluster
     volumes:
-      - kafka-3:/bitnami/kafka
+      - broker-3:/bitnami/kafka
 
   kafka-ui:
     image: obsidiandynamics/kafdrop:latest
     depends_on:
-      - kafka-3
+      - broker-3
     environment:
       - SERVER_PORT=8080
-      - KAFKA_BROKERCONNECT=kafka-1:9092,kafka-2:9092,kafka-3:9092
+      - KAFKA_BROKERCONNECT=broker-1:9092,broker-2:9092,broker-3:9092
     ports:
       - "8080:8080"
     networks:
@@ -75,6 +75,6 @@ networks:
 
 volumes:
   zookeeper:
-  kafka-1:
-  kafka-2:
-  kafka-3:
+  broker-1:
+  broker-2:
+  broker-3:

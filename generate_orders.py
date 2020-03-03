@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from kafka import KafkaProducer
 from kafka.errors import KafkaError
+from kafka import KafkaProducer
 
 import datetime
 import random
@@ -46,7 +46,7 @@ def send_items_forever(producer, topic):
         time.sleep(random.randrange(5))
 
 if __name__ == "__main__":
-    brokers = ["kafka-1:9092", "kafka-2:9092", "kafka-3:9092"]
+    brokers = ["broker-1:9092", "broker-2:9092", "broker-3:9092"]
 
     producer = KafkaProducer(
         bootstrap_servers=brokers,

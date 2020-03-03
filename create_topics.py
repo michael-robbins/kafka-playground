@@ -4,9 +4,9 @@ from kafka.admin import KafkaAdminClient, NewTopic
 
 
 brokers = [
-    "kafka-1:9092",
-    "kafka-2:9092",
-    "kafka-3:9092",
+    "broker-1:9092",
+    "broker-2:9092",
+    "broker-3:9092",
 ]
 
 admin_client = KafkaAdminClient(bootstrap_servers=brokers, client_id="create_topics")
